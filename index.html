@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="src/favIcons/favicon.ico">
+</head>
+<body>
+  <div class="card">
+    <div class="inputSection">
+      <input type="text" id="taskInput" placeholder="Add New Task..." />
+      <button id="addTaskBtn">Add</button>
+    </div>
+    <div id="taskList" class="taskList"></div>
+  </div>
+  <button id="toggleTheme" class="toggle-theme">NightMode</button>
+  <div id="customAlert" class="custom-alert hidden">
+  <span id="alertMessage"></span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

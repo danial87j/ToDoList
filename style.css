@@ -1,0 +1,258 @@
+body {
+    background-color: #fef6e4;
+    color: #4b4b4b;
+    font-family: 'Vazirmatn', sans-serif;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+/* Main card layout */
+.card {
+    background-color: #e3f9e5;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 50px;
+    border-radius: 12px;
+    display: flex;
+    gap: 30px;
+    width: 550px;
+}
+
+/* Input section for adding tasks */
+.inputSection {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 200px;
+}
+
+/* Task input field */
+#taskInput {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #c9d9c0;
+    background-color: #fffef8;
+    color: #333;
+    border-radius: 5px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#taskInput:hover,
+#taskInput:focus {
+    border-color: #94be82;
+    box-shadow: 0 0 5px rgba(149, 190, 130, 0.4);
+    outline: none;
+}
+
+/* Add task button styling */
+#addTaskBtn {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #98c9a3;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#addTaskBtn:hover {
+    background: #7eb98d;
+}
+
+/* Task list container */
+.taskList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 300px;
+}
+
+/* Individual task card */
+.taskItem {
+    width: 300px;
+    background: #fffaf2;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    direction: rtl;
+}
+
+/* Task text content */
+.taskText {
+    word-break: break-word;
+    white-space: pre-wrap;
+    padding-bottom: 30px;
+}
+
+/* Container for action buttons inside task */
+.taskButtons {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    display: flex;
+    gap: 6px;
+}
+
+/* Action buttons (done, delete) */
+.doneBtn,
+.deleteBtn {
+    width: 18px;
+    height: 18px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* Done button color */
+.doneBtn {
+    background: #28a745;
+}
+.doneBtn:hover {
+    background: #218838;
+}
+
+/* Delete button color */
+.deleteBtn {
+    background: #dc3545;
+}
+.deleteBtn:hover {
+    background: #c82333;
+}
+
+/* Completed task style */
+.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+/* Theme toggle button */
+.toggle-theme {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #fff;
+    color: #333;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.toggle-theme:hover {
+    background-color: #ddd;
+}
+
+/* Dark mode overrides */
+body.dark-mode {
+    background-color: #1f1f1f;
+    color: #eee;
+}
+
+body.dark-mode .card {
+    background-color: #2a2a2a;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+body.dark-mode #taskInput {
+    background-color: #333;
+    color: #eee;
+    border-color: #555;
+}
+
+body.dark-mode #taskInput::placeholder {
+    color: #bbb;
+}
+
+body.dark-mode #addTaskBtn {
+    background-color: #88b984;
+}
+
+body.dark-mode #addTaskBtn:hover {
+    background-color: #5f9463;
+}
+
+body.dark-mode .taskItem {
+    background-color: #2f2f2f;
+    color: #eee;
+}
+
+body.dark-mode .doneBtn {
+    background-color: #4caf50;
+}
+
+body.dark-mode .doneBtn:hover {
+    background-color: #388e3c;
+}
+
+body.dark-mode .deleteBtn {
+    background-color: #e53935;
+}
+
+body.dark-mode .deleteBtn:hover {
+    background-color: #b71c1c;
+}
+
+body.dark-mode .toggle-theme {
+    background-color: #333;
+    color: #eee;
+}
+/* Custom alert */
+.custom-alert {
+  position: fixed;
+  top: 20px; 
+  left: 50%; 
+  transform: translateX(-50%) scale(0.95);
+  background-color: #ff6b6b;
+  color: #fff;
+  padding: 16px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.custom-alert.show {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+  pointer-events: auto;
+}
+
+.custom-alert.dark {
+  background-color: #222;
+  color: #eee;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 600px) {
+    .card {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .inputSection, .taskList {
+        width: 100%;
+        max-width: none;
+    }
+
+    .taskItem {
+        width: 100%;
+    }
+
+    #taskInput, #addTaskBtn {
+        width: 100%;
+    }
+}
